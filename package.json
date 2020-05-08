@@ -34,7 +34,6 @@
   "dependencies": {
     "@rebass/preset": "^4.0.5",
     "@tippy.js/react": "^3.1.1",
-    "contentful": "^7.14.3",
     "dotenv": "^8.2.0",
     "emotion-theming": "^10.0.27",
     "envfile": "^5.0.0",
@@ -47,7 +46,9 @@
     "gatsby-plugin-styled-components": "^3.3.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-contentful": "2.3.1",
+    "gatsby-source-filesystem": "^2.3.1",
     "gatsby-source-medium": "^2.3.0",
+    "gatsby-transformer-json": "^2.4.1",
     "gatsby-transformer-remark": "^2.8.4",
     "inquirer": "^7.0.4",
     "prop-types": "^15.6.2",

@@ -41,7 +41,34 @@ const ProfilePicture = styled(Image)`
   }
 `;
 
+//const { aboutMe, profile } = data.contentfulAbout;
+//let profilePictureUrl = "./media/about.png";
+let profilePictureUrl =
+  'https://avatars1.githubusercontent.com/u/21260838?s=400&u=8ca0be9b61514dd41bb1e4a4a598eac14705fd7f&v=4';
+let alt = 'Kasper Zutterman';
+
 const About = () => (
+  <Section.Container id="about" Background={Background}>
+    <Section.Header name="About me" icon="🙋‍♂️" label="person" />
+    <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+      <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
+        <Fade bottom>About me section</Fade>
+      </Box>
+
+      <Box width={[1, 1, 2 / 6]} style={{ maxWidth: '300px', margin: 'auto' }}>
+        <Fade right>
+          <ProfilePicture
+            src={profilePictureUrl}
+            alt={alt}
+            mt={[4, 4, 0]}
+            ml={[0, 0, 1]}
+          />
+        </Fade>
+      </Box>
+    </Flex>
+  </Section.Container>
+);
+/* const About = () => (
   <Section.Container id="about" Background={Background}>
     <Section.Header name="About me" icon="🙋‍♂️" label="person" />
     <StaticQuery
@@ -93,6 +120,6 @@ const About = () => (
       }}
     />
   </Section.Container>
-);
+); */
 
 export default About;

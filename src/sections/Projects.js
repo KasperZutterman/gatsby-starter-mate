@@ -126,7 +126,7 @@ const Project = ({
       </TextContainer>
 
       <ImageContainer>
-        <ProjectImage src={logo.image.src} alt={logo.title} />
+        <ProjectImage src={logo.src} alt={logo.title} />
         <ProjectTag>
           <Flex
             style={{
@@ -168,14 +168,42 @@ Project.propTypes = {
   type: PropTypes.string.isRequired,
   publishedDate: PropTypes.string.isRequired,
   logo: PropTypes.shape({
-    image: PropTypes.shape({
-      src: PropTypes.string,
-    }),
+    src: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
 };
 
+let projects = [
+  {
+    id: 1,
+    name: 'project Name',
+    description: 'project Description',
+    projectUrl: 'url',
+    repositoryUrl: 'repo url',
+    publishedDate: '2020',
+    type: 'type',
+    logo: {
+      src:
+        'https://avatars1.githubusercontent.com/u/21260838?s=400&u=8ca0be9b61514dd41bb1e4a4a598eac14705fd7f&v=4',
+      title: 'imageTitle',
+    },
+  },
+];
+
 const Projects = () => (
+  <Section.Container id="projects" Background={Background}>
+    <Section.Header name="Projects" icon="💻" label="notebook" />
+    <CardContainer minWidth="350px">
+      {projects.map((p, i) => (
+        <Fade bottom delay={i * 200} key={p.id}>
+          <Project {...p} />
+        </Fade>
+      ))}
+    </CardContainer>
+  </Section.Container>
+);
+
+/* const Projects = () => (
   <Section.Container id="projects" Background={Background}>
     <Section.Header name="Projects" icon="💻" label="notebook" />
     <StaticQuery
@@ -211,6 +239,6 @@ const Projects = () => (
       )}
     />
   </Section.Container>
-);
+); */
 
 export default Projects;

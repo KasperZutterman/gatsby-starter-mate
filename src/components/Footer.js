@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby';
 import { Text, Box, Link, Flex } from 'rebass/styled-components';
 import Fade from 'react-reveal/Fade';
 import SocialLink from './SocialLink';
@@ -35,11 +34,68 @@ const TextFooter = styled(Text)`
   }
 `;
 
+let name = 'Kaper Zutterman';
+let socialLinks = [
+  {
+    id: 1,
+    url: 'https://github.com/KasperZutterman',
+    name: 'GitHub',
+    fontAwesomeIcon: 'fab fa-github',
+  },
+  {
+    id: 2,
+    url: 'https://www.linkedin.com/in/kasperzutterman/',
+    name: 'LinkedIn',
+    fontAwesomeIcon: 'fab fa-linkedin',
+  },
+  {
+    id: 3,
+    url: 'https://twitter.com/KasperZutterman',
+    name: 'Twitter',
+    fontAwesomeIcon: 'fab fa-twitter',
+  },
+  {
+    id: 4,
+    url: 'mailto:kasperzutterman1999@gmail.com',
+    name: 'Contact Me',
+    fontAwesomeIcon: 'fab fa-envelope',
+  },
+];
+
 const Footer = () => (
+  <Box p={[2, 3]} backgroundColor="primaryDark" as="footer">
+    <FooterContainer>
+      <Fade left>
+        <TextFooter fontSize={[2, 3]}>
+          <span>{`${name}'s Portfolio - Powered by `}</span>
+          <Link href="https://www.gatsbyjs.org/">Gatsby</Link>
+          <span> and </span>
+          <Link href="https://pages.github.com/" mr={1}>
+            Github Pages
+          </Link>
+          <span role="img" aria-label="heart">
+            ❤️
+          </span>
+        </TextFooter>
+      </Fade>
+      <Fade right>
+        <Flex>
+          {socialLinks.map(({ id, ...rest }) => (
+            <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>
+              <SocialLink {...rest} color="background" />
+            </Box>
+          ))}
+        </Flex>
+      </Fade>
+    </FooterContainer>
+  </Box>
+);
+
+/* const Footer = () => (
   <StaticQuery
     query={graphql`
       query FooterQuery {
-        contentfulAbout {
+        allDataJson {
           name
           roles
           socialLinks {
@@ -88,6 +144,6 @@ const Footer = () => (
       );
     }}
   />
-);
+); */
 
 export default Footer;

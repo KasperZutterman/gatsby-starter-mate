@@ -1,28 +1,44 @@
 import React from 'react';
 import { Helmet as ReactHelmet } from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
 import { withTheme } from 'styled-components';
 import PropTypes from 'prop-types';
 
+let name = 'Kaper Zutterman';
+let description = 'desc';
+let profile = null;
+let title = `${name} Portfolio`;
+
 const Helmet = ({ theme = {} }) => (
+  <ReactHelmet htmlAttributes={{ lang: 'en' }}>
+    <meta charSet="utf-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </ReactHelmet>
+);
+
+/* const Helmet = ({ theme = {} }) => (
   <StaticQuery
     query={graphql`
       query HelmetQuery {
-        contentfulAbout {
-          name
-          description
-          profile {
-            favicon16: resize(width: 16) {
-              src
-            }
-            favicon32: resize(width: 32) {
-              src
-            }
-            bigIcon: resize(width: 192) {
-              src
-            }
-            appleIcon: resize(width: 180) {
-              src
+        edges {
+          node {
+            allDataJson {
+              name
+              description
+              profile {
+                favicon16: resize(width: 16) {
+                  src
+                }
+                favicon32: resize(width: 32) {
+                  src
+                }
+                bigIcon: resize(width: 192) {
+                  src
+                }
+                appleIcon: resize(width: 180) {
+                  src
+                }
+              }
             }
           }
         }
@@ -78,7 +94,7 @@ const Helmet = ({ theme = {} }) => (
       );
     }}
   />
-);
+); */
 
 Helmet.propTypes = {
   // eslint-disable-next-line

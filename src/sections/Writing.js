@@ -141,6 +141,8 @@ MorePosts.propTypes = {
 
 const edgeToArray = (data) => data.edges.map((edge) => edge.node);
 
+const Writing = null;
+/*
 const Writing = () => (
   <StaticQuery
     query={graphql`
@@ -206,5 +208,5 @@ const Writing = () => (
     }}
   />
 );
-
+*/
 export default Writing;

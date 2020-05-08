@@ -6,6 +6,8 @@ import { SectionLinks } from 'react-scroll-section';
 import Fade from 'react-reveal/Fade';
 import RouteLink from './RouteLink';
 import Logo from './Logo/Portfolio.svg';
+import { Box } from 'rebass/styled-components';
+import LinkAnimated from './LinkAnimated';
 
 const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1);
 
@@ -34,6 +36,8 @@ const formatLinks = (allLinks) =>
     },
     { links: [], home: null },
   );
+
+const style = { color: 'white', textDecoration: 'none' };
 
 const Header = () => (
   <HeaderContainer>
@@ -71,7 +75,16 @@ const Header = () => (
             return (
               <Fragment>
                 {homeLink}
-                <Flex mr={[0, 3, 5]}>{navLinks}</Flex>
+                <Flex mr={[0, 3, 5]}>
+                  {navLinks}
+                  <Box ml={[2, 3]} color="background" fontSize={[2, 3]}>
+                    <LinkAnimated selected={false} tabIndex={0}>
+                      <a href="/blog" style={style}>
+                        Blog
+                      </a>
+                    </LinkAnimated>
+                  </Box>
+                </Flex>
               </Fragment>
             );
           }}

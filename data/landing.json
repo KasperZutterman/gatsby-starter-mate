@@ -1,0 +1,10 @@
+{
+  "name": "Mate",
+  "roles": "Roles",
+  "socialLinks": {
+    "id": "id",
+    "url": "url",
+    "name": "name",
+    "fontAwesomeIcon": "icon"
+  }
+}
